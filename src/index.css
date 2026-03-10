@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 85% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 85% 50%;
+    --radius: 0.25rem;
+    --carbon-grey: 0 0% 25%;
+    --carbon-dark: 0 0% 8%;
+    --electric-red: 0 85% 50%;
+    --electric-red-glow: 0 100% 60%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-wider;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+  .gradient-red-glow {
+    background: linear-gradient(135deg, hsl(var(--electric-red)), hsl(var(--electric-red-glow)));
+  }
+  .text-gradient-red {
+    background: linear-gradient(135deg, hsl(var(--electric-red)), hsl(var(--electric-red-glow)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .carbon-overlay {
+    background: repeating-conic-gradient(hsl(0 0% 10%) 0% 25%, hsl(0 0% 8%) 0% 50%) 0 0 / 4px 4px;
+  }
+  .glow-red {
+    box-shadow: 0 0 30px hsl(var(--electric-red) / 0.3), 0 0 60px hsl(var(--electric-red) / 0.1);
+  }
+  .border-glow {
+    border: 1px solid hsl(var(--electric-red) / 0.3);
+  }
+  .parallax-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    @apply font-display uppercase tracking-widest text-muted/5 whitespace-nowrap select-none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--carbon-grey));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--electric-red));
+}
+
+/* Custom crosshair cursor */
+* {
+  cursor: crosshair;
+}
+a, button, [role="button"] {
+  cursor: crosshair;
+}
